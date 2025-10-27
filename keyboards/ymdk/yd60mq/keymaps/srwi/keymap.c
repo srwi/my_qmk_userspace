@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 
 #include "raw_hid.h"
+#include "usb_descriptor.h"
 
 enum my_keycodes {
   QUICK_SCROLL_UP = SAFE_RANGE,
