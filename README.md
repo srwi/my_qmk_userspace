@@ -1,3 +1,10 @@
+git submodule add https://github.com/qmk/qmk_firmware.git
+git submodule update --init --recursive
+qmk config user.qmk_home="/workspaces/my_qmk_userspace/qmk_firmware"
+qmk config user.overlay_dir="$(realpath qmk_userspace)"
+
+
+
 # QMK Userspace
 
 This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
