@@ -15,7 +15,7 @@ jobs:
       preparation_command: |
         ls $GITHUB_WORKSPACE
         echo -------------
-        cp $GITHUB_WORKSPACE/keyboards/srwi $GITHUB_WORKSPACE/qmk_firmware/keyboards/srwi
+        cp -r $GITHUB_WORKSPACE/keyboards/srwi $GITHUB_WORKSPACE/qmk_firmware/keyboards/srwi
 
   publish:
     name: 'QMK Userspace Publish'
