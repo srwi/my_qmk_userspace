@@ -4,6 +4,7 @@
         ["crkbd/rev1", "srwi"],
         ["evyd13/plain60", "srwi"],
         ["ymdk/yd60mq", "srwi"],
-        ["ymdk/yd60mq", "srwi_split_spacebar"]
+        ["ymdk/yd60mq", "srwi_split_spacebar"],
+        ["srwi/like_lily58", "via"]
     ]
 }
