@@ -4,16 +4,16 @@ Collection of QMK based keyboards including stl files for 3D-printing.
 
 ## Keyboards
 
+- Existing QMK keyboards
+    - [crkbd/rev1](keyboards/crkbd/keymaps/srwi) - Corne keyboard with a transparent 3D-printed case and flat choc switches
+    - [evyd13/plain60](keyboards/evyd13/plain60/keymaps/srwi) - Evyd13 Plain60 keyboard with plate and stabilizers taken from an old Vortex Pok3r (ISO)
+    - [ymdk/yd60mq #1](keyboards/ymdk/yd60mq/keymaps/srwi) - YMDK YD60MQ 60% keyboard in a wooden case with brass inlet
+    - [ymdk/yd60mq #2](keyboards/ymdk/yd60mq/keymaps/srwi_split_spacebar) - YMDK YD60MQ 60% keyboard with split spacebar in concrete case
 - Handwired
     - [srwi/like_lily58](keyboards/srwi/like_lily58) - 3D-printed/painted split keyboard inspired by the Lily58
     - [srwi/like_vortex_core](keyboards/srwi/like_vortex_core) - 3D-printed/painted 40% keyboard with the layout of the Vortex Core
     - [srwi/like_planck](keyboards/srwi/like_planck) - 3D-printed transparent keyboard with 3D-printed keycaps with the layout of the Planck
-    - [srwi/silico](keyboards/srwi/silico) - Handwired 60% keyboard embedded into solid silicone in an aluminum case and 3D-printed plate
-- Vendor keyboards
-    - [crkbd/rev1](keyboards/crkbd/keymaps/srwi) - Corne keyboard with a transparent 3D-printed case and flat choc switches
-    - [evyd13/plain60](keyboards/evyd13/plain60/keymaps/srwi) - Evyd13 Plain60 keyboard with plate and stabilizers taken from an old Vortex Pok3r (ISO)
-    - [ymdk/yd60mq #1](keyboards/ymdk/yd60mq/keymaps/srwi) - YMDK YD60MQ 60% keyboard in a wooden case with brass inlet
-    - [ymdk/yd60mq #2](keyboards/ymdk/yd60mq/keymaps/srwi_split_spacebar) - YMDK YD60MQ 60% keyboard with split spacebar
+    - [srwi/silicone60](keyboards/srwi/silicone60) - Handwired 60% keyboard embedded into solid silicone in an aluminum case and 3D-printed plate
 
 ## Building custom/handwired keyboards
 
@@ -35,7 +35,7 @@ Once everything is set up there are mostly three scenarios:
     python compile_keyboard.py --keyboard <keyboard> --keymap <keymap> [--overwrite]
     ```
 
-Currently the only custom vendor is `srwi`, but it can be extended by adding more vendors to `CUSTOM_VENDOR_FOLDERS` in `compile_keyboard.py`.
+    Currently the only custom vendor is `srwi`, but it can be extended by adding more vendors to `CUSTOM_VENDOR_FOLDERS` in `compile_keyboard.py`.
 
 - **Building existing vendor keyboards**: Existing vendor's keyboards can be built normally using the qmk cli or the `compile_keyboards.py` script.
 

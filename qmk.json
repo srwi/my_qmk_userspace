@@ -5,9 +5,9 @@
         ["evyd13/plain60", "srwi"],
         ["ymdk/yd60mq", "srwi"],
         ["ymdk/yd60mq", "srwi_split_spacebar"],
-        ["srwi/like_lily58", "via"],
-        ["srwi/like_planck", "via"],
-        ["srwi/like_vortex_core", "via"],
-        ["srwi/silico", "via"]
+        ["srwi/like_lily58", "default"],
+        ["srwi/like_planck", "default"],
+        ["srwi/like_vortex_core", "default"],
+        ["srwi/silicone60", "default"]
     ]
 }
