@@ -1,5 +1,9 @@
 VIA_ENABLE = yes
 LTO_ENABLE = yes
+
 BACKLIGHT_ENABLE = no
 RGBLIGHT_ENABLE = no
+
 RAW_ENABLE = yes
+
+USER_NAME := srwi

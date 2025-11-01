@@ -1,9 +1,7 @@
 #include QMK_KEYBOARD_H
 
-#include "raw_hid.h"
-#include "usb_descriptor.h"
-
-#define ___x___ KC_NO
+#include <quick_scroll.h>
+#include <layer_handling.h>
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT(
@@ -57,32 +55,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // void keyboard_post_init_user(void) {
 //     PLAY_SONG(startup);
 // }
-
-layer_state_t default_layer_state_set_user(layer_state_t state) {
-	eeconfig_update_default_layer(state);
-	return state;
-}
-
-void via_custom_value_command_kb(uint8_t *data, uint8_t length) {
-    uint8_t *command_id = &(data[0]);
-    uint8_t *value_id = &(data[2]);
-    uint8_t *value_data = &(data[3]);
-
-    switch(*value_id) {
-        case 1:
-            layer_move(*value_data);
-            break;
-        default:
-            *command_id = id_unhandled;
-            break;
-    }
-}
-
-layer_state_t layer_state_set_user(layer_state_t state) {
-    uint8_t layer = get_highest_layer(state);
-    uint8_t data[RAW_EPSIZE] = { 0 };
-    data[0] = 0x01;
-    data[1] = layer;
-    raw_hid_send(data, RAW_EPSIZE);
-    return state;
-}

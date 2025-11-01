@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 
-#define ___x___ KC_NO
+#include <quick_scroll.h>
+#include <layer_handling.h>
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT(
@@ -46,8 +47,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
   )
 };
-
-layer_state_t default_layer_state_set_user(layer_state_t state) {
-	eeconfig_update_default_layer(state);
-	return state;
-}
