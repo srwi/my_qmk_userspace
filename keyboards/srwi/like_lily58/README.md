@@ -1,3 +1,18 @@
+# like_lily58
+
+3D-printed & painted split keyboard inspired by the Lily58.
+
+<p align="center">
+    <img src="assets/photos/like_lily58 (1).jpeg" width="550">
+    <img src="assets/photos/like_lily58 (2).jpeg" width="550">
+</p>
+
+## 3D models
+
+All stl files can be found in [`assets/3d_models`](assets/3d_models).
+
+## Configure layout
+
 To configure the layout with via:
 
 1. Go to https://usevia.app
