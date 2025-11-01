@@ -13,8 +13,6 @@ jobs:
       qmk_repo: qmk/qmk_firmware
       qmk_ref: master
       preparation_command: |
-        ls $GITHUB_WORKSPACE
-        echo -------------
         cp -r $GITHUB_WORKSPACE/keyboards/srwi $GITHUB_WORKSPACE/qmk_firmware/keyboards/srwi
 
   publish:
