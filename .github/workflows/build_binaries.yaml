@@ -15,8 +15,8 @@ jobs:
       preparation_command: |
         cp -r $GITHUB_WORKSPACE/keyboards/srwi $GITHUB_WORKSPACE/qmk_firmware/keyboards/srwi
 
-  publish:
-    name: 'QMK Userspace Publish'
-    uses: qmk/.github/.github/workflows/qmk_userspace_publish.yml@main
-    if: always() && !cancelled()
-    needs: build
+#   publish:
+#     name: 'QMK Userspace Publish'
+#     uses: qmk/.github/.github/workflows/qmk_userspace_publish.yml@main
+#     if: always() && !cancelled()
+#     needs: build
