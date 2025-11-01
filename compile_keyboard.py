@@ -7,30 +7,20 @@ import subprocess
 import sys
 
 
+# List of vendor folders that need to be copied from this userspace into qmk_firmware
+CUSTOM_VENDOR_FOLDERS = ["srwi"]
+
+
 def parse_args() -> argparse.Namespace:
     prog = Path(sys.argv[0]).name
-    parser = argparse.ArgumentParser(
-        prog=prog,
-        description="Copy vendor folder into qmk_firmware and run qmk compile",
-    )
+    parser = argparse.ArgumentParser(prog=prog, description="Compile QMK firmware for a given keyboard and keymap.")
     parser.add_argument("-kb", dest="keyboard", required=True, help="keyboard (e.g. srwi/lily58)")
     parser.add_argument("-km", dest="keymap", required=True, help="keymap name (e.g. default)")
     parser.add_argument("-overwrite", dest="overwrite", action="store_true", help="overwrite existing destination")
     return parser.parse_args()
 
 
-def main() -> int:
-    args = parse_args()
-    keyboard = args.keyboard
-    keymap = args.keymap
-    overwrite = bool(args.overwrite)
-
-    # vendor is the first path segment, or the whole string if no '/'
-    vendor = keyboard.split("/", 1)[0] if keyboard else ""
-    if not vendor:
-        print("Error: could not determine vendor from keyboard string", file=sys.stderr)
-        return 1
-
+def copy_vendor_folder(vendor: str, overwrite: bool) -> None:
     src_vendor_dir = Path(__file__).parent / "keyboards" / vendor
     dest_vendor_dir = Path(__file__).parent / "qmk_firmware" / "keyboards" / vendor
 
@@ -50,6 +40,21 @@ def main() -> int:
     print(f"Copying {src_vendor_dir} -> {dest_vendor_dir}")
     dest_vendor_dir.parent.mkdir(parents=True, exist_ok=True)
     shutil.copytree(str(src_vendor_dir), str(dest_vendor_dir), symlinks=True, copy_function=shutil.copy2)
+
+
+def main() -> int:
+    args = parse_args()
+    keyboard = args.keyboard
+    keymap = args.keymap
+    overwrite = bool(args.overwrite)
+
+    vendor = keyboard.split("/", 1)[0] if keyboard else ""
+    if not vendor:
+        print("Error: could not determine vendor from keyboard string", file=sys.stderr)
+        return 1
+
+    if vendor in CUSTOM_VENDOR_FOLDERS:
+        copy_vendor_folder(vendor, overwrite)
 
     cmd = ["qmk", "compile", "-kb", keyboard, "-km", keymap]
     print("Running", " ".join(cmd))
