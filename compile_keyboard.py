@@ -14,9 +14,9 @@ CUSTOM_VENDOR_FOLDERS = ["srwi"]
 def parse_args() -> argparse.Namespace:
     prog = Path(sys.argv[0]).name
     parser = argparse.ArgumentParser(prog=prog, description="Compile QMK firmware for a given keyboard and keymap.")
-    parser.add_argument("-kb", dest="keyboard", required=True, help="keyboard (e.g. srwi/lily58)")
-    parser.add_argument("-km", dest="keymap", required=True, help="keymap name (e.g. default)")
-    parser.add_argument("-overwrite", dest="overwrite", action="store_true", help="overwrite existing destination")
+    parser.add_argument("--keyboard", dest="keyboard", required=True, help="keyboard (e.g. srwi/like_lily58)")
+    parser.add_argument("--keymap", dest="keymap", required=True, help="keymap name (e.g. default)")
+    parser.add_argument("--overwrite", dest="overwrite", action="store_true", help="overwrite existing destination")
     return parser.parse_args()
 
 

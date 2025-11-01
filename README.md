@@ -1,11 +1,43 @@
-git submodule add https://github.com/qmk/qmk_firmware.git
-git submodule update --init --recursive
-qmk config user.qmk_home="/workspaces/my_qmk_userspace/qmk_firmware"
-qmk config user.overlay_dir="$(realpath qmk_userspace)"
-
-
-
 # QMK Userspace
+
+Collection of QMK based keyboards including stl files for 3D-printing.
+
+## Keyboards
+
+- Handwired
+    - [srwi/like_lily58](keyboards/srwi/like_lily58) - 3D-printed/painted split keyboard inspired by the Lily58
+    - [srwi/like_vortex_core](keyboards/srwi/like_vortex_core) - 3D-printed/painted 40% keyboard with the layout of the Vortex Core
+    - [srwi/like_planck](keyboards/srwi/like_planck) - 3D-printed transparent keyboard with 3D-printed keycaps with the layout of the Planck
+    - [srwi/silico](keyboards/srwi/silico) - Handwired 60% keyboard embedded into solid silicone in an aluminum case and 3D-printed plate
+- Vendor keyboards
+    - [crkbd/rev1](keyboards/crkbd/keymaps/srwi) - Corne keyboard with a transparent 3D-printed case and flat choc switches
+    - [evyd13/plain60](keyboards/evyd13/plain60/keymaps/srwi) - Evyd13 Plain60 keyboard with plate and stabilizers taken from an old Vortex Pok3r (ISO)
+    - [ymdk/yd60mq #1](keyboards/ymdk/yd60mq/keymaps/srwi) - YMDK YD60MQ 60% keyboard in a wooden case with brass inlet
+    - [ymdk/yd60mq #2](keyboards/ymdk/yd60mq/keymaps/srwi_split_spacebar) - YMDK YD60MQ 60% keyboard with split spacebar
+
+## Building custom/handwired keyboards
+
+Regular QMK userspace does not support custom/handwired keyboards. For being able to build them anyway, we need to clone the qmk firmware repository here, configure it for use with this userspace, and add the custom keyboard keymaps before building:
+
+### Building with GitHub Actions
+
+Keyboard firmwares will be built automatically on push to the repository and uploaded as workflow artifacts.
+
+### Building manually
+
+In Codespaces `.devcontainer/setup.sh` will be run automatically to set up the environment for compiling custom/handwired keyboards. Locally, the corresponding setup needs to be done manually.
+
+Once everything is set up, existing vendor's keyboards can be built normally using the qmk cli. Custom/handwired keyboards have to be built using the python script `compile_keyboard.py` which will copy the vendor directory into the qmk_firmware clone before building:
+
+    `python compile_keyboard.py --keyboard <keyboard> --keymap <keymap> [--overwrite]`
+
+Currently the only custom vendor is `srwi`, but it can be extended by adding more vendors to `CUSTOM_VENDOR_FOLDERS` in `compile_keyboard.py`.
+
+-----------
+
+<details>
+
+<summary>Original QMK userspace readme</summary>
 
 This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
 
@@ -64,3 +96,5 @@ This can also be used to control which fork is used, though only upstream `qmk_f
 1. (First time only) `git submodule add https://github.com/qmk/qmk_firmware.git`
 1. (To update) `git submodule update --init --recursive`
 1. Commit your changes to your userspace repository
+
+</details>

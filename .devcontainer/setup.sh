@@ -21,3 +21,5 @@ qmk config user.qmk_home=$userspacePath/qmk_firmware
 qmk config user.overlay_dir="$userspacePath"
 
 qmk git-submodule
+
+chmod +x compile_keyboard.py
