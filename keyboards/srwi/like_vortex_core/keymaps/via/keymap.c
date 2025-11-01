@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 
 #include "raw_hid.h"
+#include "usb_descriptor.h"
 
 #define ___x___ KC_NO
 
