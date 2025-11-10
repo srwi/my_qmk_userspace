@@ -1,5 +1,6 @@
 #pragma once
 
+#include "quantum.h"
 #include "raw_hid.h"
 #include "usb_descriptor.h"
 

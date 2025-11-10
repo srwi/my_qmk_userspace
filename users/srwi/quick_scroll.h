@@ -1,5 +1,7 @@
 #pragma once
 
+#include "quantum.h"
+
 enum my_keycodes {
   QS_UP = SAFE_RANGE,
   QS_DOWN,
